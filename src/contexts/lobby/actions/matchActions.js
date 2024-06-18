@@ -1,0 +1,31 @@
+export const {
+    INITIAL_MATCH,
+    WILDCARD,
+    STEAL,
+    TAKE,
+    JUMP,
+    PLAY_CARD,
+    LEAVE,
+    NEXT_TURN,
+    CHANGE_COLOR,
+    UNO,
+    NOT_UNO,
+    WINNER,
+    MATCH_OVER
+  } = {
+    INITIAL_MATCH: "INITIAL_MATCH",
+    WILDCARD:"WILDCARD",
+    STEAL:"STEAL",
+    TAKE:"TAKE",
+    JUMP:"JUMP",
+    PLAY_CARD:"PLAY_CARD",
+    NUMBER: "NUMBER",
+    LEAVE:"LEAVE",
+    NEXT_TURN:"NEXT_TURN",
+    CHANGE_COLOR:"CHANGE_COLOR",
+    UNO:"UNO",
+    NOT_UNO:"NOT_UNO",
+    WINNER:"WINNER",
+    MATCH_OVER:"MATCH_OVER",
+    PLAY_AGAIN:"PLAY_AGAIN"
+  };

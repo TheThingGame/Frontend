@@ -1,0 +1,15 @@
+export const {
+  INITIAL_LOBBY,
+  JOIN,
+  LEAVE,
+  LOBBY_DESTROY,
+  START,
+  
+
+} = {
+  INITIAL_LOBBY: "INITIAL_LOBBY",
+  JOIN: "JOIN",
+  LEAVE: "LEAVE",
+  LOBBY_DESTROY: "LOBBY_DESTROY",
+  START: "START"
+};

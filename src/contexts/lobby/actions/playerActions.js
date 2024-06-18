@@ -1,0 +1,12 @@
+export const {
+    INITIAL_PLAYER,
+    HAND,
+    REMOVE_CARD,
+    ADD_CARDS
+
+  } = {
+    INITIAL_PLAYER: "INITIAL_PLAYER",
+    HAND:"HAND",
+    ADD_CARDS: "ADD_CARDS",
+    REMOVE_CARD: "REMOVE_CARD",
+  };
