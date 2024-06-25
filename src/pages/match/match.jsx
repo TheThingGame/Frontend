@@ -34,6 +34,9 @@ const Match = () => {
     onMessageHandler((message) => {
       const {action, ...rest} = message;
 
+      console.log("ACTION:", action);
+      console.log("REST:", rest);
+
       if (action === "STEAL" && player.player_name === match.curr_turn) {
         playerDispatch({type: "ADD_CARDS", payload: {cards: rest.cards}});
       }
@@ -78,6 +81,7 @@ const Match = () => {
 
   const handleUno = async () => {
     const {error: errorResponse} = await fetchData(() => uno(lobby.match_id, player.player_id));
+    console.log("ERROR UNO:", errorResponse);
   };
 
   const handleChageColor = async (color) => {
@@ -88,6 +92,7 @@ const Match = () => {
 
   const handlePlayAgain = async () => {
     const {error: errorResponse} = await fetchData(() => playAgain(lobby.match_id, player.player_id));
+    console.log("PLAY AGAIN ERROR:", errorResponse);
   };
 
   const handleLeave = async () => {
@@ -117,7 +122,7 @@ const Match = () => {
       </Modal>
 
       <Modal {...winner}>
-        <div className='text-black flex flex-col gap-10 items-center'>
+        <div className='flex flex-col gap-10 items-center text-2xl font-bold leading-9 tracking-tight text-gray-900'>
           <p>Winner: {match.winner}</p>
           <div className='flex justify-center gap-10'>
             <button
@@ -170,10 +175,12 @@ const Match = () => {
       </div>
 
       <div className='relative w-full min-h-[800px]'>
-        {match.ordered_players.map(({player_name, cards}, playerIndex) => {
+        {match.ordered_players.map(({player_name, uno, cards}, playerIndex) => {
           let position;
           let direction;
           let playersLength = match.ordered_players.length;
+
+          console.log("UNITO:", uno);
 
           if (playersLength === 2) {
             position = playerIndex === 0 ? positions[0] : positions[2];
@@ -186,7 +193,7 @@ const Match = () => {
           return (
             <div key={playerIndex} className={`absolute ${position} flex flex-col justify-normal items-center`}>
               <div className='flex flex-col items-center'>
-                {match.uno && match.uno === player_name && <p className='font-extrabold'>UNO!</p>}
+                {uno && <p className='font-extrabold'>UNO!</p>}
                 <p className={`mb-2 ${match.curr_turn === player_name && `font-extrabold`}`}>{player_name}</p>
               </div>
 

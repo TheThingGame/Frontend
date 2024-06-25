@@ -5,5 +5,4 @@ export const initialMatchState = {
   curr_turn: "",
   prev_turn: "",
   winner: "",
-  uno: "",
 };
