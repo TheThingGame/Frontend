@@ -1,28 +1,25 @@
-import { INITIAL_PLAYER, HAND, REMOVE_CARD, ADD_CARDS } from "../actions/playerActions";
+import {INITIAL_PLAYER, HAND, REMOVE_CARD, ADD_CARDS} from "../actions/playerActions";
 
 export const playerReducer = (state, action) => {
-  let payload = action.payload
+  let payload = action.payload;
 
   switch (action.type) {
     case INITIAL_PLAYER:
-        console.log("INITIAL PLAYER DATA:", payload)
       return {...state, ...payload};
 
-      case HAND:
-        console.log("HAAAAAAAND:", payload)
-        return {...state, hand:payload};
+    case HAND:
+      return {...state, hand: payload};
 
-    case REMOVE_CARD:{
-        const hand = [...state.hand].filter(({id}) => id !== payload)
-        return {...state, hand}
+    case REMOVE_CARD: {
+      const hand = [...state.hand].filter(({id}) => id !== payload);
+      return {...state, hand};
     }
-    
+
     case ADD_CARDS: {
-      console.log("PAYLOAD:", payload)
-        const hand = [...state.hand, ...payload.cards]
-        return {...state, hand}
+      const hand = [...state.hand, ...payload.cards];
+      return {...state, hand};
     }
-    
+
     default:
       console.log("ULTIMO CASO:", action.type);
   }

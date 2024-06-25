@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback } from "react";
+import {useEffect, useRef, useCallback} from "react";
 
 const useWebSocket = (url) => {
   const socketRef = useRef(null);
@@ -14,14 +14,12 @@ const useWebSocket = (url) => {
     if (socketRef.current) {
       socketRef.current.onmessage = (event) => {
         const message = JSON.parse(event.data);
-        console.log("MESSAGE WS:", message)
         callback(message);
       };
     } else {
       console.error("Error: WebSocket connection not initialized.");
     }
   }, []);
-
 
   useEffect(() => {
     socketRef.current = new WebSocket(url);
@@ -31,7 +29,7 @@ const useWebSocket = (url) => {
     };
   }, [url, closeWebSocket]);
 
-  return { onMessageHandler, closeWebSocket };
+  return {onMessageHandler, closeWebSocket};
 };
 
 export default useWebSocket;

@@ -1,8 +1,9 @@
 export const initialMatchState = {
-        ordered_players: [],
-        pot: {},
-        steal: 0,
-        color: "",
-        curr_turn: "",
-        prev_turn: ""
-}
+  ordered_players: [],
+  pot: {},
+  color: "",
+  curr_turn: "",
+  prev_turn: "",
+  winner: "",
+  uno: "",
+};

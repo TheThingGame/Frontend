@@ -1,22 +1,19 @@
-import { useState, useRef } from "react";
+import {useState, useRef} from "react";
 
-const useModal = () => {
+const useModal = (blocked = false) => {
   const [showModal, setShowModal] = useState(false);
-  const [isBlocked, setIsBlocked] = useState(false); 
+  const [isBlocked, setIsBlocked] = useState(blocked);
   const ref = useRef(null);
 
   const toggleModal = () => {
     if (!ref.current) return;
 
     if (showModal) {
-      if (isBlocked) return; 
       setShowModal(false);
       ref.current.close();
-      setIsBlocked(false); 
     } else {
       setShowModal(true);
       ref.current.showModal();
-      setIsBlocked(false); 
     }
   };
 
@@ -24,7 +21,7 @@ const useModal = () => {
     showModal,
     toggleModal,
     ref,
-    isBlocked
+    isBlocked,
   };
 };
 
